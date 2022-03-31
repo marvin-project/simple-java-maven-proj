@@ -21,6 +21,6 @@ VERSION=`mvn help:evaluate -Dexpression=project.version | grep "^[^\[]"`
 set +x
 
 echo 'The following command runs and outputs the execution of yousr Java'
-echo "application (which Jenkins built using Maven) to the Jenkins UI. $BUILD_NUMBER"
+echo "application (which Jenkins built using Maven) to the Jenkins UIs. $BUILD_NUMBER"
 set -x
 java -jar target/${NAME}-${VERSION}.jar
