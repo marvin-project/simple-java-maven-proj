@@ -1,13 +1,15 @@
 pipeline {
     agent {
-        docker {
-          image 'maven:3-alpine'
-       }
-    }
-    options {
-        skipStagesAfterUnstable()
+    label 'docker' 
     }
     stages {
+        stage('Docker node test') {
+          agent {
+            docker {
+              label 'docker'
+              image 'maven:latest'
+           }
+        }
         stage('Build') {
             steps {
                 sh 'mvn -B -DskipTests clean package'
